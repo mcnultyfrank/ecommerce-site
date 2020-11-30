@@ -1,5 +1,5 @@
-import React from "react";
-import { Dropdown, Menu, Button, Divider } from 'semantic-ui-react'
+import React, {Link} from "react";
+import { Dropdown, Menu, Button, Divider, Input } from 'semantic-ui-react'
 
 import styles from "./Header.module.scss";
 
@@ -8,10 +8,10 @@ const Header = () => {
     <>
       <header>
         <nav>
-        <Menu>
-        <Menu.Item><h1 className={styles.titleheader}>youShop</h1></Menu.Item>
-    <Menu.Item className = {styles.navButton}>Home</Menu.Item>
-    <Dropdown text='Shopping' pointing className='link item'>
+        <Menu stackable = {'true'} size = {'medium'} >
+        <Menu.Item ><h1 className={styles.titleheader}>youShop</h1></Menu.Item>
+    <Menu.Item as={Link} to='/' button = {'true'} className = {styles.navButton}>Home</Menu.Item>
+    <Dropdown  text='Shopping' pointing className='link item'>
       <Dropdown.Menu>
         <Dropdown.Header>Categories</Dropdown.Header>
         <Dropdown.Item>
@@ -38,11 +38,16 @@ const Header = () => {
         <Dropdown.Item>Cancellations</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
-    <Menu.Item>Contact Us</Menu.Item>
-    <Menu.Item>Log In</Menu.Item>
-
-
-
+    <Menu.Menu position='right'>
+          <Menu.Item>
+            <Input icon='search' placeholder='Search...' />
+          </Menu.Item>
+          <Menu.Item
+            name='logout'
+            // active={activeItem === 'logout'}
+            // onClick={this.handleItemClick}
+          />
+        </Menu.Menu>
   </Menu>
         </nav>
       </header>
