@@ -2,9 +2,9 @@ import React, {Link} from "react";
 import { Dropdown, Menu, Button, Divider, Input } from 'semantic-ui-react'
 
 import styles from "./Header.module.scss";
-
+  
 const Header = () => {
-  return (
+  return ( 
     <>
       <header>
         <nav>
