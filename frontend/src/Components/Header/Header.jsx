@@ -1,5 +1,4 @@
 import React from "react";
-import 'semantic-ui-css/semantic.min.css'
 import { Dropdown, Menu, Button, Divider } from 'semantic-ui-react'
 
 import styles from "./Header.module.scss";
