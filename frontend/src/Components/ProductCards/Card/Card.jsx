@@ -1,14 +1,17 @@
 import React from "react";
+import  { Link } from "@reach/router"
 import { Rating, Button } from 'semantic-ui-react'
 import styles from "./Card.module.scss";
 
 
 const Card = (props) => {
-  const {name, category, price, description, image, countInStock, rating, brand} = props.product
+  const {name, category, price, description, image, countInStock, rating, brand, _id} = props.product
   return (
     <div className = {styles.card}>
       <img src={image} />
-      <h1>{name}</h1>
+      <Link to = {`/product/${_id}`}>
+      <h1 className = {styles.title}>{name}</h1>
+      </Link>
       <div>
         <h4>{brand}</h4>
         <h5>{category}</h5>
@@ -16,12 +19,12 @@ const Card = (props) => {
       </div>
       <p>{description}</p>
       <div>
-      <Button>Add to cart</Button>
+      <Button disabled={countInStock > 0 ? false : true} >Add to cart</Button>
       <Rating icon='star' defaultRating={0} maxRating={5} rating = {rating}/>
       <p>{countInStock} left in stock</p>
-      </div>
-
     </div>
+    </div>
+
   );
 };
 

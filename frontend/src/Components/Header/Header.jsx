@@ -1,53 +1,62 @@
-import React, {Link} from "react";
+import React, {useState} from "react";
+import { Link } from "@reach/router";
 import { Dropdown, Menu, Button, Divider, Input } from 'semantic-ui-react'
-
 import styles from "./Header.module.scss";
+import products from "../../products.js";
   
 const Header = () => {
+ 
+  const [user, setUser] = useState(false);
+  
+  
   return ( 
     <>
       <header>
         <nav>
         <Menu stackable = {'true'} size = {'medium'} >
-        <Menu.Item ><h1 className={styles.titleheader}>youShop</h1></Menu.Item>
-    <Menu.Item as={Link} to='/' button = {'true'} className = {styles.navButton}>Home</Menu.Item>
+        <Menu.Item ><h1 className={styles.titleheader}>
+          <Link to = '/'>
+          youShop
+          </Link>
+          </h1></Menu.Item>
+      <Menu.Item button = {'true'} className = {styles.navButton}>
+      <Link to = '/'>
+        Home
+        </Link>
+        </Menu.Item>
     <Dropdown  text='Shopping' pointing className='link item'>
       <Dropdown.Menu>
         <Dropdown.Header>Categories</Dropdown.Header>
         <Dropdown.Item>
-          <Dropdown text='Clothing'>
-            <Dropdown.Menu>
-              <Dropdown.Header>Mens</Dropdown.Header>
-              <Dropdown.Item>Shirts</Dropdown.Item>
-              <Dropdown.Item>Pants</Dropdown.Item>
-              <Dropdown.Item>Jeans</Dropdown.Item>
-              <Dropdown.Item>Shoes</Dropdown.Item>
+          <Dropdown text='Electronics'>
+            <Dropdown.Menu >
+              <Dropdown.Header>Brands</Dropdown.Header>
+              {products.map(brand => {
+                return <Dropdown.Item>{brand.brand}</Dropdown.Item>})}
               <Dropdown.Divider />
-              <Dropdown.Header>Womens</Dropdown.Header>
-              <Dropdown.Item>Dresses</Dropdown.Item>
-              <Dropdown.Item>Shoes</Dropdown.Item>
-              <Dropdown.Item>Bags</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Dropdown.Item>
         <Dropdown.Item>Home Goods</Dropdown.Item>
         <Dropdown.Item>Bedroom</Dropdown.Item>
         <Dropdown.Divider />
-        <Dropdown.Header>Order</Dropdown.Header>
-        <Dropdown.Item>Status</Dropdown.Item>
+        <Dropdown.Header>My Account</Dropdown.Header>
+        <Dropdown.Item>Orders</Dropdown.Item>
         <Dropdown.Item>Cancellations</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
     <Menu.Menu position='right'>
+        </Menu.Menu>
           <Menu.Item>
-            <Input icon='search' placeholder='Search...' />
+            <Input size = {'large'} focus = {'true'} icon='search' placeholder='Search...' />
           </Menu.Item>
           <Menu.Item
-            name='logout'
+            name={user === false ? 'Log In' : 'Log Out'}
+            className = {styles.logInButton}
             // active={activeItem === 'logout'}
             // onClick={this.handleItemClick}
           />
-        </Menu.Menu>
+
   </Menu>
         </nav>
       </header>
