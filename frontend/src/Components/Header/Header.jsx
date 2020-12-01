@@ -48,13 +48,11 @@ const Header = () => {
     <Menu.Menu position='right'>
         </Menu.Menu>
           <Menu.Item>
-            <Input size = {'large'} focus = {'true'} icon='search' placeholder='Search...' />
+            <Input size = {'large'}  icon='search' placeholder='Search...' />
           </Menu.Item>
           <Menu.Item
             name={user === false ? 'Log In' : 'Log Out'}
             className = {styles.logInButton}
-            // active={activeItem === 'logout'}
-            // onClick={this.handleItemClick}
           />
 
   </Menu>

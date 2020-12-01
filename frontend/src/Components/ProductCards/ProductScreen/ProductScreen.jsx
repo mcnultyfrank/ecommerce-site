@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "./ProductScreen.module.scss";
 import Header from "../../../Components/Header";
 import Footer from "../../../Components/Footer";
-import products from "../../../products";
+// import products from "../../../products";
 import { Rating, Button } from 'semantic-ui-react'
 
 
 
 const ProductScreen = (props) => {
+
+  const [products, setProducts] = useState([])
 
   const product = products.find((item) => item._id === props._id);
   

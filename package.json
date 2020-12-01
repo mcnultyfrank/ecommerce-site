@@ -1,0 +1,14 @@
+{
+  "name": "ecommerce-site",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/mcnultyfrank/ecommerce-site.git",
+  "author": "Frank McNulty <mcnultyfrank94@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "run": "node backend/server"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
