@@ -1,19 +1,28 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "@reach/router";
 import { Dropdown, Menu, Button, Divider, Input } from 'semantic-ui-react'
-import styles from "./Header.module.scss";
-import products from "../../products.js";
-  
-const Header = () => {
- 
+import styles from "./Header.module.scss";  
+import axios from 'axios'
+
+const Header = (props) => {
+
   const [user, setUser] = useState(false);
+  const [brand, setBrand] = useState([]);
+  
+  useEffect(() => {
+    const getProduct = async () => {
+      const {data} = await axios.get(`/api/products/${props._id}`)
+      setBrand(data)
+    }
+    getProduct();
+  }, [])
   
   
   return ( 
     <>
       <header>
         <nav>
-        <Menu stackable = {'true'} size = {'medium'} >
+        <Menu stackable = {true} size = {'large'} >
         <Menu.Item ><h1 className={styles.titleheader}>
           <Link to = '/'>
           youShop
@@ -31,8 +40,8 @@ const Header = () => {
           <Dropdown text='Electronics'>
             <Dropdown.Menu >
               <Dropdown.Header>Brands</Dropdown.Header>
-              {products.map(brand => {
-                return <Dropdown.Item>{brand.brand}</Dropdown.Item>})}
+              {/* {brand.map(brand => {
+                return <Dropdown.Item>{brand.brand}</Dropdown.Item>})} */}
               <Dropdown.Divider />
             </Dropdown.Menu>
           </Dropdown>

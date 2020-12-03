@@ -1,17 +1,24 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styles from "./ProductScreen.module.scss";
 import Header from "../../../Components/Header";
 import Footer from "../../../Components/Footer";
-// import products from "../../../products";
+import axios from 'axios'
 import { Rating, Button } from 'semantic-ui-react'
 
 
 
 const ProductScreen = (props) => {
 
-  const [products, setProducts] = useState([])
+  const [product, setProduct] = useState({})
 
-  const product = products.find((item) => item._id === props._id);
+  useEffect(() => {
+    const getProduct = async () => {
+      const {data} = await axios.get(`/api/products/${props._id}`)
+      setProduct(data)
+    }
+    getProduct();
+  }, [])
+
   
   
 
@@ -29,7 +36,7 @@ const ProductScreen = (props) => {
           <h5>{product.category}</h5>
         </div>
         <p>{product.description}</p>
-        <Rating icon='star' defaultRating={0} maxRating={5} rating = {product.rating}/>
+        <Rating icon='star' maxRating={5} rating = {product.rating}/>
 
       </div>
       <div className = {styles.productAddToCart}>

@@ -20,7 +20,7 @@ const Card = (props) => {
       <p>{description}</p>
       <div>
       <Button disabled={countInStock > 0 ? false : true} >Add to cart</Button>
-      <Rating icon='star' defaultRating={0} maxRating={5} rating = {rating}/>
+      <Rating icon='star' maxRating={5} rating = {rating}/>
       <p>{countInStock} left in stock</p>
     </div>
     </div>

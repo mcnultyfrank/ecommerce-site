@@ -6,7 +6,7 @@ import styles from "./Footer.module.scss";
 const Footer = () => {
   return (
     <>
-        <Menu stackable = {'true'} >
+        <Menu stackable = {true} >
         <Menu.Item
           name='editorials'
           // active={activeItem === 'editorials'}
