@@ -1,11 +1,9 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Header from "./Header";
+import Sidebar from "./Sidebar";
 
-describe("Header tests", () => {
+describe("Sidebar tests", () => {
   it("should render", () => {
-    expect(render(<Header />)).toBeTruthy();
+    expect(render(<Sidebar />)).toBeTruthy();
   });
 });
-
-

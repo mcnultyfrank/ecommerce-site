@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import  { Link } from "@reach/router"
 import { Rating, Button } from 'semantic-ui-react'
 import styles from "./Card.module.scss";
 
 
 const Card = (props) => {
+
   const {name, category, price, description, image, countInStock, rating, brand, _id} = props.product
   return (
     <div className = {styles.card}>

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "@reach/router";
-import { Dropdown, Menu, Button, Divider, Input } from 'semantic-ui-react'
+import { Dropdown, Menu, Input } from 'semantic-ui-react'
 import styles from "./Header.module.scss";  
 import axios from 'axios'
 
@@ -11,8 +11,10 @@ const Header = (props) => {
   
   useEffect(() => {
     const getProduct = async () => {
-      const {data} = await axios.get(`/api/products/${props._id}`)
+      const {data} = await axios.get(`/api/products`)
       setBrand(data)
+      console.log(data);
+      
     }
     getProduct();
   }, [])
@@ -40,8 +42,8 @@ const Header = (props) => {
           <Dropdown text='Electronics'>
             <Dropdown.Menu >
               <Dropdown.Header>Brands</Dropdown.Header>
-              {/* {brand.map(brand => {
-                return <Dropdown.Item>{brand.brand}</Dropdown.Item>})} */}
+              {brand.map(brand => {
+                return <Dropdown.Item>{brand.brand}</Dropdown.Item>})}
               <Dropdown.Divider />
             </Dropdown.Menu>
           </Dropdown>
