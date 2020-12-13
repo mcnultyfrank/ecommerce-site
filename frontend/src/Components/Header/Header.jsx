@@ -14,23 +14,24 @@ const Header = (props) => {
       const {data} = await axios.get(`/api/products`)
       setBrand(data)
       console.log(data);
-      
     }
+    
     getProduct();
   }, [])
-  
+
   
   return ( 
     <>
       <header>
         <nav>
         <Menu stackable = {true} size = {'large'} >
-        <Menu.Item ><h1 className={styles.titleheader}>
-          <Link to = '/'>
-          youShop
-          </Link>
-          </h1></Menu.Item>
-      <Menu.Item button = {'true'} className = {styles.navButton}>
+          <Menu.Item >
+            <h1 className={styles.titleheader}>
+            <Link to = '/'>
+            youShop
+            </Link>
+            </h1></Menu.Item>
+          <Menu.Item button = {'true'} className = {styles.navButton}>
       <Link to = '/'>
         Home
         </Link>
