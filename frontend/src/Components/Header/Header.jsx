@@ -3,7 +3,6 @@ import { Link } from "@reach/router";
 import { Dropdown, Menu, Input } from 'semantic-ui-react'
 import styles from "./Header.module.scss";  
 import axios from 'axios'
-
 const Header = (props) => {
 
   const [user, setUser] = useState(false);
@@ -18,6 +17,8 @@ const Header = (props) => {
     
     getProduct();
   }, [])
+
+
 
   
   return ( 
